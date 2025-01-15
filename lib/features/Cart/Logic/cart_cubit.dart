@@ -12,11 +12,13 @@ class CartCubit extends Cubit<CartState> {
   CartRepository cartRepository;
   CartCubit(this.cartRepository) : super(CartInitial());
 
-  Future getCart() async {
+  void getCart() async {
     emit(CartLoading());
     final result = await cartRepository.getCart();
     if (result.isSuccess) {
+      print('${result.Data}');
       emit(CartSuccess(result.Data!));
+
     } else {
       emit(CartError(result.Error!));
     }
@@ -35,6 +37,8 @@ class CartCubit extends Cubit<CartState> {
 
     final result = await cartRepository.addProduct(cartProduct);
     if (result.isSuccess) {
+      print('${result.Data}');
+
       emit(CartSuccess(result.Data!));
     } else {
       emit(CartError(result.Error!));
@@ -44,6 +48,8 @@ class CartCubit extends Cubit<CartState> {
   Future updateCart(int productID, int quantity) async {
     final result = await cartRepository.updateProduct(productID, quantity);
     if (result.isSuccess) {
+      print('${result.Data}');
+
       emit(CartSuccess(result.Data!));
     } else {
       emit(CartError(result.Error!));
@@ -53,6 +59,8 @@ class CartCubit extends Cubit<CartState> {
   Future removeCart(int productID) async {
     final result = await cartRepository.removeProduct(productID);
     if (result.isSuccess) {
+      print('${result.Data}');
+
       emit(CartSuccess(result.Data!));
     } else {
       emit(CartError(result.Error!));

@@ -32,7 +32,7 @@ class LocalCartRepositoryImplementation implements CartRepository {
     if (allCartProducts.containsKey(addedProduct.id)) {
       allCartProducts[addedProduct.id]!.quantity += addedProduct.quantity;
     } else {
-      allCartProducts[addedProduct.id] != addedProduct;
+      allCartProducts[addedProduct.id] = addedProduct;
     }
     return getCart();
   }
@@ -40,7 +40,7 @@ class LocalCartRepositoryImplementation implements CartRepository {
   @override
   Future<ApiResult<CartResponse>> updateProduct(int productID, int quantity) {
     if (allCartProducts.containsKey(productID)) {
-      if (quantity < 0) {
+      if (quantity > 0) {
         allCartProducts[productID]!.quantity = quantity;
       } else {
         allCartProducts.remove(productID);

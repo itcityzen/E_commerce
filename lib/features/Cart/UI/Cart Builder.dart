@@ -18,7 +18,11 @@ class CartBuilder extends StatelessWidget {
       if (state is CartError) {
         return Center(child: Text(state.Error));
       }
+
       if (state is CartSuccess) {
+        if(state.cart.products.isEmpty){
+          return Text('Your Cart is Empty');
+        }
         return Column(
           children: [
             Expanded(
