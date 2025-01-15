@@ -5,12 +5,10 @@ class RegisterRequestModel {
 
   String password;
 
-
   Map<String, dynamic> toJson() {
     return {
-      'karim10@gmail.com': email,
-      '000000': password,
-
+      'email': email,
+      'password': password,
     };
   }
 }

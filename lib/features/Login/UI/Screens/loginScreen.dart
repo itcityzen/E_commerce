@@ -38,7 +38,13 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: 150.h,
+                height: 25.h,
+              ),
+              ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(200.r)),
+                  child: Image.asset('assets/WELCOME-ST-IVES.jpg')),
+              SizedBox(
+                height: 20.h,
               ),
               Text(
                 LocaleKeys.Authentication_title_Login.tr(),

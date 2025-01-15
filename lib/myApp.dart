@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeCubit, ThemeState>(
-      builder: (context, state) {
+      builder: (context, Themestate) {
         return BlocBuilder<LocalizationCubit, LocalizationState>(
           builder: (context, state) {
             context.read<LocalizationCubit>().LastLoadedLanguage(context);
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
                   locale: state.locale,
                   debugShowCheckedModeBanner: false,
                   routerConfig: AppRouter.router,
-                  theme: state is ThemeisDark
+                  theme: Themestate is ThemeisDark
                       ? ThemeData.dark()
                       : ThemeData.light(),
                 );

@@ -4,8 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BannerCarouselSlider extends StatelessWidget {
-  const BannerCarouselSlider({super.key});
-
+  BannerCarouselSlider({super.key});
+  List<String> CarouselImages = [
+    'assets/DwV.jpg',
+    'assets/152y.jpg',
+    'assets/2opy.jpg'
+  ];
   @override
   Widget build(BuildContext context) {
     return CarouselSlider.builder(
@@ -17,7 +21,7 @@ class BannerCarouselSlider extends StatelessWidget {
         autoPlay: true,
         enlargeCenterPage: true,
       ),
-      itemCount: 3,
+      itemCount: CarouselImages.length,
       itemBuilder: (context, index, realIndex) {
         return ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(16.r)),
@@ -25,7 +29,7 @@ class BannerCarouselSlider extends StatelessWidget {
               width: double.infinity,
               color: Colors.grey,
               child: Image.asset(
-                'lib/core/assets/DwV.jpg',
+                CarouselImages[index],
                 fit: BoxFit.cover,
               )),
         );

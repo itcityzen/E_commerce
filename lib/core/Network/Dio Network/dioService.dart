@@ -19,9 +19,30 @@ class DioService implements ApiConsumer {
   }
 
   @override
-  Future post(String Url, {Map<String, dynamic>? Body}) async {
+  Future post(String Url,
+      {Map<String, dynamic>? Body, Options? options}) async {
     try {
-      var Response = await dio.post(Url, data: Body);
+      var Response = await dio.post(Url, data: Body, options: options);
+      return Response.data;
+    } on DioException catch (e) {
+      throw handleDioError(e);
+    }
+  }
+
+  @override
+  Future delete(String Url, {Options? options}) async {
+    try {
+      var Response = await dio.delete(Url, options: options);
+      return Response.data;
+    } on DioException catch (e) {
+      throw handleDioError(e);
+    }
+  }
+
+  @override
+  Future put(String Url, {Map<String, dynamic>? Body, Options? options}) async {
+    try {
+      var Response = await dio.put(Url, data: Body, options: options);
       return Response.data;
     } on DioException catch (e) {
       throw handleDioError(e);

@@ -5,6 +5,7 @@ abstract class HomeRepository {
   Future<ApiResult<List<String>>> getCategory();
 
   Future<ApiResult<ProductsResponse>> getNewArrivals();
+  Future<ApiResult<ProductsResponse>> getProductsOfCategory(String categoryName);
 
 
 }

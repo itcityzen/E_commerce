@@ -20,7 +20,7 @@ class ProductBuilder extends StatelessWidget {
               crossAxisCount: 2,
               crossAxisSpacing: 2.sp,
               mainAxisSpacing: 2.sp,
-              childAspectRatio: 0.64.sp),
+              childAspectRatio: 0.59.sp),
           itemCount: 6,
           itemBuilder: (context, index) {
             return ShimmerProductItem();
@@ -35,7 +35,7 @@ class ProductBuilder extends StatelessWidget {
               crossAxisCount: 2,
               crossAxisSpacing: 2.sp,
               mainAxisSpacing: 2.sp,
-              childAspectRatio: 0.79.sp),
+              childAspectRatio: 0.59.sp),
           itemCount: state.products.length,
           itemBuilder: (context, index) {
             return ProductItem(product: state.products[index]);

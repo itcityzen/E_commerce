@@ -31,7 +31,8 @@ class CategoryBuilder extends StatelessWidget {
               itemCount: state.category.length,
               itemBuilder: (context, index) {
                 return CategoryItem(Category: state.category[index]);
-              }),
+              }
+              ),
         );
       }
       if (state is HomeError) {

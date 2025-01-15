@@ -30,4 +30,16 @@ class HomeRepositoryImplementation implements HomeRepository {
       return ApiResult.Error('Error $e');
     }
   }
+
+  @override
+  Future<ApiResult<ProductsResponse>> getProductsOfCategory(
+      String categoryName) async {
+    try {
+      var data = await apiConsumer
+          .get('${ApiConstants.productOfCategory}/${categoryName}');
+      return ApiResult.Success(ProductsResponse.fromJson(data));
+    } catch (e) {
+      return ApiResult.Error('Fail to get Data ${e.toString()}');
+    }
+  }
 }

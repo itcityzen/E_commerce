@@ -1,9 +1,14 @@
+import 'package:e_commerce/core/Routes/approuter.dart';
 import 'package:e_commerce/core/Widgets/CustomButton.dart';
-import 'package:e_commerce/features/Home/UI/BannerCarouselSlider.dart';
+import 'package:e_commerce/features/Home/UI/Screens/BannerCarouselSlider.dart';
 import 'package:e_commerce/features/Home/UI/Screens/widget/category/category%20builder.dart';
 import 'package:e_commerce/features/Home/UI/Screens/widget/products/product%20builder.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../Cart/Logic/cart_cubit.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,7 +27,10 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                context.read<CartCubit>().getCart();
+                context.push(ConstantRouter.cartScreen);
+              },
               icon: Icon(
                 Icons.shopping_cart,
                 color: Colors.black,

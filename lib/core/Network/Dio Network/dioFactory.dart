@@ -8,7 +8,7 @@ class DioFactory {
     if (_dio != null) {
       return _dio!;
     }
-    _dio = Dio(BaseOptions(baseUrl: ApiConstants.apiBaseUrl))
+    _dio = Dio(BaseOptions())
       ..interceptors.add(PrettyDioLogger(
           error: true, requestBody: true, responseBody: true, request: true));
     return _dio!;

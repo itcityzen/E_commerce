@@ -25,7 +25,7 @@ class Formlogin extends StatelessWidget {
                 labelText: LocaleKeys.Authentication_user_name.tr(),
                 controller: Cubit.usernameController),
             SizedBox(
-              height: 30.h,
+              height: 10.h,
             ),
             CustomFormTextField(
                 hintText: LocaleKeys.Authentication_password.tr(),

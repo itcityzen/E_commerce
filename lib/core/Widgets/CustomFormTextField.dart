@@ -23,32 +23,34 @@ class CustomFormTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      obscureText: isObscureText,
-      validator: validator,
-      decoration: InputDecoration(
-        labelText: labelText,
-        labelStyle: TextStyle(fontSize: 16.sp, color: ColorsManager.mainDark),
-        hintText: hintText,
-        hintStyle: TextStyle(fontSize: 14.sp, color: ColorsManager.gray),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.r),
-          borderSide: const BorderSide(color: ColorsManager.lightGray),
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: TextFormField(
+        controller: controller,
+        obscureText: isObscureText,
+        validator: validator,
+        decoration: InputDecoration(
+          labelText: labelText,
+          labelStyle: TextStyle(fontSize: 16.sp, color: ColorsManager.mainDark),
+          hintText: hintText,
+          hintStyle: TextStyle(fontSize: 14.sp, color: ColorsManager.gray),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.r),
+            borderSide: const BorderSide(color: ColorsManager.lightGray),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30.r),
+          ),
+          suffixIcon: suffixIcon,
+          filled: true,
+          fillColor: ColorsManager.lighterGray,
+          contentPadding: EdgeInsets.symmetric(
+            vertical: 20.h,
+            horizontal: 16.w,
+          ),
         ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8.r),
-          borderSide: const BorderSide(color: ColorsManager.mainRed),
-        ),
-        suffixIcon: suffixIcon,
-        filled: true,
-        fillColor: ColorsManager.lighterGray,
-        contentPadding: EdgeInsets.symmetric(
-          vertical: 20.h,
-          horizontal: 16.w,
-        ),
+        style: TextStyle(fontSize: 12.sp),
       ),
-      style: TextStyle(fontSize: 12.sp),
     );
   }
 }
